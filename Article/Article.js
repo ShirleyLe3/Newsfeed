@@ -102,13 +102,76 @@ const data = [
   Hint: You will need to use createElement more than once here!
 
   Your function should take either an object as its one argument, or 5 separate arguments mapping to each piece of the data object above.
+*/
+function articleMaker(Text){
+  const article = document.createElement('div');
+    article.className = 'article';
+  const title = document.createElement('h2');
+    title.textContent = Text;   
+  const paragraph1 = document.createElement('p');
+  const paragraph2 = document.createElement('p');
+  const paragraph3 = document.createElement('p'); 
+    paragraph1.className = 'date';
+    paragraph1.textContent = Text;   
+  const expButton = document.createElement('span');
+    expButton.className = 'expandButton';
+  // article.classList.add('article');
+
+
+  const body = document.querySelector('body').getElementsByClassName('articles');
+  body.appendChild('article');
+  article.appendChild('title');
+  article.appendChild('paragraph1');
+  article.appendChild('paragraph2');
+  article.appendChild('paragraph3');
+  article.appendChild('expButton');
+
+
+  const expand = 'assets/menu.png';
+  expButton.textContent = expand;
+  title.textContent = title;
+  // paragraph.textContent = date;
+  paragraph1.textContent = Text1;
+  paragraph2.textContent = Text2;
+  paragraph3.textContent = Text3;     
+
+/*
 
   Step 2: Add an event listener to the expandButton span. This listener should toggle the class 'article-open' on the 'article' div.
+*/
 
+expButton.addEventListener('click', (e) => {
+  article.classList.toggle('articleOpen');
+  article.classList.toggle('toggle-on');
+  article.classList.toggle('toggle-off');
+  //     console.log('clicked!');
+
+});
+
+
+  return article;
+}
+
+// data.forEach(obj => {
+//       console.log(obj);
+// });
+data.forEach( (item) => {
+  // for (let i = 0; i < navBar.length; i++)
+  let articleLoop = articleMaker(data[i]);
+  body.appendChild(articleLoop);
+});
+
+
+
+// let firstArticle = articleMaker('Article');
+// console.log(firstArticle());
+
+
+
+/*
   Step 3: Don't forget to return something from your function!
 
   Step 4: Outside your function, loop over the data. At each iteration you'll use your component to create an article and append it to the DOM inside the 'articles' div.
 
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 */
-hgdfkjs
