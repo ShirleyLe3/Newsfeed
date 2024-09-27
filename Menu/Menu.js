@@ -31,3 +31,53 @@ let menuItems = [
 
   Step 6: Use 'menuMaker' to create a menu using the 'menuItems' array, and append the returned markup to the DOM.
 */
+
+function menuMaker(arr) {
+
+  let menuDiv = document.createElement('div');
+  let ul = document.createElement('ul');
+  // let li = document.createElement('li'); 
+  let button = document.querySelector('.menu-button')
+  
+  
+  menuDiv.classList.add('menu');
+  menuDiv.appendChild(ul);
+  // ul.appendChild(li);
+  // menuDiv.appendChild(button);
+
+
+  
+    arr.forEach((arrItem) => {
+      let li = document.createElement('li')       //loop applies to li
+      li.textContent = arrItem;                  // array passed into li
+      ul.appendChild(li)
+    })
+
+
+    button.addEventListener("click", (e) => {
+    menuDiv.addEventListener.classList.toggle("menu--open")
+  });
+
+  
+
+
+
+  return menuDiv;
+}
+
+
+
+
+
+
+const header = document.querySelector(".header")
+header.appendChild(menuMaker(li));
+
+
+
+
+// data.forEach( menu => {
+//   let newMenu = menuMaker(menu);
+//   menuDiv.appendChild(newMenu);
+// });
+
